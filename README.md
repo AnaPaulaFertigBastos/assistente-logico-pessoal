@@ -41,8 +41,6 @@ devo_estudar(Dia, Turno) :- livre(Dia, Turno), \+ dia_cheio(Dia).
 ## Saída real do assistente
 
 ```text
-COLE AQUI O TEXTO DO TERMINAL MOSTRANDO PELO MENOS 3 OPÇÕES, INCLUINDO A 8 (MINHA REGRA)
-```
 Resultado Opção 1: 
 == Minhas disciplinas ==
   - lpp (quarta, noite)
@@ -72,3 +70,4 @@ Resultado Opção 8 (minha regra):
   - sabado de manha
   - sabado de tarde
   - sabado de noite
+```

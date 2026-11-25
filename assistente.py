@@ -1,5 +1,5 @@
 from prolog import consultar, verdade, atomo
-
+from prolog import BASE  # junto dos outros imports
 
 def mostrar(titulo, itens):
     print(f"\n== {titulo} ==")
@@ -54,6 +54,14 @@ def devo_estudar():
     r = consultar("devo_estudar(D, T)", ["D", "T"])
     mostrar("Dias e turnos em que devo estudar", [f"{x['D']} de {x['T']}" for x in r])
 
+
+def cadastrar_gosto():
+    categoria = atomo(input("Categoria: "))
+    item = atomo(input("Item: "))
+    with open(BASE, "a", encoding="utf-8") as arquivo:
+        arquivo.write(f"\ngosta({categoria}, {item}).")
+    print(f"Aprendi: você gosta de {item.replace('_', ' ')} ({categoria}).")
+
 # e no menu:
 OPCOES = {
     "1": ("Minhas disciplinas", minhas_disciplinas),
@@ -64,7 +72,9 @@ OPCOES = {
     "6": ("Meus gostos por categoria", meus_gostos),
     "7": ("Dias cheios", dias_cheios),
     "8": ("Dias e turnos em que devo estudar", devo_estudar),
+    "9": ("Cadastrar um gosto", cadastrar_gosto)
 }
+
 
 def menu():
     nome = consultar("eu(N)", ["N"])[0]["N"]

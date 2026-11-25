@@ -25,6 +25,7 @@ python assistente.py       # ou: node assistente.js
 
 - Fatos: `eu/1`, `cursa/3`, `compromisso/3`, `sabe/2`, `gosta/2`
 - Regras: `ocupado/2`, `livre/2`, `o_que_faco/3`, `pode_ensinar/1`, `dia_cheio/1` e a minha regra abaixo
+`devo_estudar/2`
 
 ## Minha regra (R6) - Devo estudar se estou livre
 
@@ -34,6 +35,8 @@ devo_estudar(Dia, Turno) :- livre(Dia, Turno), \+ dia_cheio(Dia).
 ```
 
 **O que ela significa:** A regra 6 implementada verifica se o dia está livre no dia e/ou turnos inseridos. O livre(Dia, Turno) verifica se o dia e turnos estão livres, isso é, se não existe compromisso naquele dia e se o dia não estiver cheio. O objetivo é, a partir dessa verificação, identificar qual dia está livre para estudo, a fim de verificar qual dia é possível estudar.
+1. Verificar a disponibilidade: identificar se o turno informado está livre, por meio do predicado livre(Dia, Turno), verificando a inexistência de compromissos no período.
+2. Verificar a ocupação do dia: identificar se o dia não está completamente ocupado, utilizando a negação do predicado dia_cheio(Dia).
 
 ## Saída real do assistente
 
